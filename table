@@ -1,0 +1,70 @@
+
+// 车辆搜索
+  CREATE TABLE car_searching (
+  id INT NOT NULL AUTO_INCREMENT,
+  start_address VARCHAR(200) NOT NULL,
+  end_address VARCHAR(200) NOT NULL,
+  driver_name VARCHAR(40) NOT NULL,
+  driver_phone VARCHAR(11) NOT NULL,
+  driver_remark VARCHAR(1000),
+  residue_seat tinyint,
+  driver_gender tinyint,
+  start_time DATETIME,
+  end_time DATETIME,
+  publish_time DATETIME,
+  PRIMARY KEY ( id )
+  );
+
+
+
+  INSERT INTO car_searching ( start_address, end_address, driver_name,
+ driver_phone, driver_remark, residue_seat,
+  driver_gender,start_time,end_time, publish_time )
+                       VALUES
+                       ( '上海市徐汇区钦州路1号', '上海市浦东新区远东宏信广场','张司机', '15380101739', '免费来',5, 1,'2021-11-05 12:00:00', '2021-11-05 13:00:00', '2021-11-03 12:22:35');
+
+// 乘客搜索
+CREATE TABLE passenger_searching (
+  id INT NOT NULL AUTO_INCREMENT,
+  start_address VARCHAR(200) NOT NULL,
+  end_address VARCHAR(200) NOT NULL,
+  user_name VARCHAR(40) NOT NULL,
+  user_phone VARCHAR(11) NOT NULL,
+  user_remark VARCHAR(1000),
+  quantity tinyint,
+  user_gender tinyint,
+  start_time DATETIME,
+  end_time DATETIME,
+  publish_time DATETIME,
+  PRIMARY KEY ( id )
+  );
+
+// 基本信息 // 暂时不用
+CREATE TABLE user_base_info (
+  id INT NOT NULL AUTO_INCREMENT,
+  driver_phone VARCHAR(11) NOT NULL,
+  PRIMARY KEY ( id )
+);
+
+// 我的乘客信息
+CREATE TABLE user_passenger_info (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(40) NOT NULL,
+  phone VARCHAR(11) NOT NULL,
+  gender tinyint,
+  login_phone VARCHAR(11),
+  PRIMARY KEY ( id )
+);
+
+// 我的车主信息 login_phone临时当token去查询数据
+CREATE TABLE user_owner_info (
+  id INT NOT NULL AUTO_INCREMENT,
+  driver_name VARCHAR(40) NOT NULL,
+  driver_phone VARCHAR(11) NOT NULL,
+  driver_seating tinyint,
+  driver_gender tinyint,
+  plate_number VARCHAR(40),
+  vehicle_brand VARCHAR(50),
+  login_phone VARCHAR(11),
+  PRIMARY KEY ( id )
+  );
