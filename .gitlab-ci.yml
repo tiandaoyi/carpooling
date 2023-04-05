@@ -1,0 +1,19 @@
+sonar_analyze:
+  stage: test
+  script:
+    - echo "$CI_BUILD_REF_NAME"
+    - cp /opt/sonar-project.properties ./
+    - alias=$(pwd)
+    - name=${alias##*/}
+    - echo $name
+    - add=$"$name-$CI_BUILD_REF_NAME"
+    - echo $add
+    - sed -i "2s/=.*/=$add/" sonar-project.properties
+    - sed -i "4s/=.*/=$add/" sonar-project.properties
+    - /usr/local/sonar-scaner-2.8/bin/sonar-scanner
+    - rm -rf sonar-project.properties
+#  only:
+#    - master
+#    - release
+  tags:
+    - sonar_new

@@ -1,47 +1,92 @@
 {
-  "name": "carpooling-service",
-  "version": "1.0.0",
-  "description": "",
+  "name": "carpooling",
+  "version": "0.1.0",
   "private": true,
-  "egg": {
-    "declarations": true
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "egg": "^2.15.1",
-    "egg-mysql": "^3.0.0",
-    "egg-scripts": "^2.11.0"
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@sentry/browser": "^5.30.0",
+    "@sentry/integrations": "^5.30.0",
+    "amfe-flexible": "^2.2.1",
+    "autoprefixer": "^8.0.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "js-cookie": "^2.2.1",
+    "js-md5": "^0.7.3",
+    "lodash": "^4.17.21",
+    "lodash-webpack-plugin": "^0.11.6",
+    "mescroll.js": "^1.4.2",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.0",
+    "normalize.css": "^8.0.1",
+    "numberextend": "^1.0.0",
+    "postcss": "^8.2.12",
+    "postcss-px2rem": "^0.3.0",
+    "postcss-pxtorem": "^5.1.1",
+    "sass": "^1.23.7",
+    "sass-loader": "^8.0.0",
+    "standard": "^16.0.3",
+    "vant": "^2.12.20",
+    "vconsole": "^3.12.1",
+    "vue": "^2.6.11",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-mobile-calendar": "^3.3.0",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
-    "autod-egg": "^1.1.0",
-    "egg-bin": "^4.11.0",
-    "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.4",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "vue-template-compiler": "^2.6.11"
   },
-  "engines": {
-    "node": ">=10.0.0"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
   },
-  "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-carpooling-service",
-    "stop": "egg-scripts stop --title=egg-server-carpooling-service",
-    "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
-    "lint": "eslint .",
-    "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,vue,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
-  "ci": {
-    "version": "10"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "daoyi.tian",
-  "license": "MIT"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
